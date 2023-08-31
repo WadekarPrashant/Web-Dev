@@ -13,23 +13,70 @@
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
 
-            Select School: <select id="school" name="school">
-                <option>School of CSE</option>
-                <option>School of ECE</option>
-                </select>
+            <!-- Select School: <select id="school" name="school">
+            <option>Select the School</option>
+            <option>School of CSE</option>
+            <option>School of ECE</option>
+            </select><br><br>    -->
+
+            <label for="school">Select the School</label>
+            <input list="Select School" id="school" name="school" />          
+            <datalist id="Select School">
+              <option value="School of CSE"></option>
+              <option value="School of ECE"></option>
+              <option value="School of Bio-Engineering"></option>
+            </datalist>
+            <br><br>
+            
+            <label for="state">Select the State</label>
+            <input list="Select State" id="state" name="state" />          
+            <datalist id="Select State">
+              <option value="Maharashtra"></option>
+              <option value="Gujarat"></option>
+              <option value="Delhi"></option>
+            </datalist>
             <br><br>
 
-            Select State: <select id="school" name="school">
-                <option>Maharashtra</option>
-                <option>Gujarat</option>
-                </select>
+            <label for="city">Select the City</label>
+            <input list="Select the City" id="city" name="city" />          
+            <datalist id="Select the City">
+              <option value="Chhatrapati Sambhajinagar"></option>
+              <option value="Pune"></option>
+              <option value="Nashik"></option>
+            </datalist>
             <br><br>
+
+            <!-- Select State: <select id="state" input type="text" name="state">
+            <option>Select the State</option>
+            <option>Maharashtra</option>
+            <option>Gujarat</option>
+            <option>Delhi</option>
+            </select><br><br>   
+
+            <datalist id="state">
+                <option value="Edge">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+              </datalist> -->
+            
+            <!-- Select District: <select id="school" name="school">
+                <option>Select the District</option>
+                <option>Chhatrapati Sambhajinagar</option>
+                <option>Pune</option>
+                <option>Nashik</option>
+                </select><br><br> -->
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br><br>
             
             <label for="mobile">Mobile Number:</label>
             <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required><br><br>
+
+            Country: <input type="text" id="country" value="India" disabled="true"><br><br>
+            PinCode: <input type="text" maxlength=6 id="pincode" pattern="\d{6}" title="Enter 6 digit numbers only">
+<br><br>
             
             <label for="dob">Date of Birth:</label>
             <input type="date" id="dob" name="dob" required><br><br>
