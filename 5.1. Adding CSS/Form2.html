@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+    <style>input:valid {
+        background-color: palegreen;
+      }
+      
+      input:invalid {
+        background-color: lightpink;
+      }</style>
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Lets Have a dropdown Validation</h1>
+    <form action="Home.php" method="post">
+        Enter Name: <input type="text" id="name" placeholder="Name Surname"> <br><br>
+        Select School: <select id="school" name="school">
+            <option>Select your School</option>
+            <option>School of Engineering and Technology</option>
+            <option>School of Computer Science & Engineering</option>
+            <option>Ramcharan School of Leadership</option>
+            <option>School of Business</option>
+            <option>School of Economics and Commerce</option>
+            <option>School of Government</option>
+            <option>School of Health Sciences & Technology</option>
+            <option>School of Science & Environmental Studies</option>
+            <option>School of Design</option>
+            <option>School of Liberal Arts</option>
+            </select>            
+            <br><br>
+        PhoneNumber: <input type="number" id="contact" onchange="validateNumber(this.value)"  onkeypress="validateNumber(this.value)" placeholder="10 digit PhoneNumber"><br><br>
+        Email Address: <input type="email" id="email" placeholder="Valid Email id"><br><br>
+        State: <input type="text" id="state" list="StateLists" name="state" onchange="filterCities()" placeholder="Select from dropdown"><br><br>
+
+        City: <input list="CityLists" id="city" name="city" placeholder="select from dropdown or type"><br><br>
+        Country: <input type="text" id="country" value="India" disabled="true"><br><br>
+        PinCode: <input type="text" maxlength=6 id="pincode" placeholder="6 Digit code" pattern="\d{6}" title="Enter 6 digit numbers only">
+
+        <datalist id="StateLists">
+            <option>Maharashtra</option>
+            <option>Karnataka</option>
+            <option>Gujarat</option>
+        </datalist>
+        <datalist id="CityLists">
+  
+        </datalist>
+        <datalist id="schools">
+            
+        </datalist> <br><br>
+        <input type="submit">
+    </form>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+<script>
+    function validityCheck()
+    {
+        document.getElementById("pincode").oninvalid
+    }
+    const citiesByState = {
+        "Maharashtra": [
+            "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad",
+            "Solapur", "Amravati", "Kolhapur", "Sangli", "Satara"
+        ],
+        "Karnataka": [
+            "Bangalore", "Mysore", "Hubli", "Belgaum", "Mangalore",
+            "Gulbarga", "Davanagere", "Shimoga", "Bellary", "Tumkur"
+        ],
+        "Gujarat": [
+            "Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar",
+            "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Bharuch"
+        ]
+    };
+    
+    function validatePincode(pincode)
+    {
+        
+    }
+    function validateNumber(number)
+    {
+        if(number>9999999999)
+        {
+         document.getElementById("contact").value=document.getElementById("contact").value.slice(0,9);
+         document.getElementById("contact").contentEditable=false;
+        }
+    }
+    function filterCities() {
+        const stateInput = document.getElementById("state");
+        const cityInput = document.getElementById("CityLists");
+        const selectedState = stateInput.value;
+
+        cityInput.innerHTML = ''; // Clear previous options
+
+        if (citiesByState[selectedState]) {
+            citiesByState[selectedState].forEach(city => {
+                const option = document.createElement("option");
+                option.value = city;
+                cityInput.appendChild(option);
+            });
+        }
+    }
+</script>
+</html>
