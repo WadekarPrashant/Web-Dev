@@ -1,0 +1,36 @@
+.card{
+    width:400px;
+    border:1px solid lightgray;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    margin:20px auto;
+    
+}
+
+img{
+    width:100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.btn{
+    border-radius: 10px;
+    padding:10px 20px;
+    border: 1px solid lightgray;
+    background-color: white;
+    color:blue;
+    font-weight: bold;
+
+}
+
+.card-innerbox{
+    padding: 20px;
+}
+
+.subscribe{
+    display:inline-block;
+}
+
+span,p{
+    color: rgb(74, 72, 72);
+}
